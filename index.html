@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Option List</title>
+</head>
+
+<body>
+    <form action="/summary" method="GET">
+        <fieldset>
+            <legend>Option List</legend>
+            <select id="option_list">
+                <option name="dog" value="dog">Dog</option>
+                <option name="cat" value="cat">Cat</option>
+            </select>
+        </fieldset>
+        <!--
+        <fieldset>
+            <legend>Submit Animal</legend>
+            <input type="submit" value="Submit">
+        </fieldset>
+        -->
+        <fieldset>
+            <legend>XSS Stored</legend>
+            <input type="text">
+        </fieldset>
+    </form>
+</body>
+
+<script>
+    alert("XSS Stored");
+    const elephant = "elephant";
+    document.getElementById("option_list").innerHTML += `<option value="${elephant}">Elephant</option>`;
+</script>
+
+</html>
